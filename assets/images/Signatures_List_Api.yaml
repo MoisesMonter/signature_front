@@ -1,0 +1,797 @@
+openapi: 3.0.3
+info:
+  title: Signatures_List_Api
+  version: 1.0.0
+  description: API documentation for My Project
+paths:
+  /api/docs/ata/create/:
+    post:
+      operationId: api_docs_ata_create_create
+      description: Endpoint to create a new Ata with a selected SignatureList.
+      summary: Create a new Ata
+      tags:
+      - Ata
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Ata'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Ata'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Ata'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ata'
+          description: ''
+  /api/login/:
+    post:
+      operationId: api_login_create
+      tags:
+      - api
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/signature_lists/:
+    get:
+      operationId: api_signature_lists_list
+      tags:
+      - Signature Lists
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SignatureList'
+          description: ''
+    post:
+      operationId: api_signature_lists_create
+      tags:
+      - Signature Lists
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignatureList'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SignatureList'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SignatureList'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignatureList'
+          description: ''
+  /api/signature_lists/{id}/:
+    get:
+      operationId: api_signature_lists_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this signature list.
+        required: true
+      tags:
+      - Signature Lists
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignatureList'
+          description: ''
+    put:
+      operationId: api_signature_lists_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this signature list.
+        required: true
+      tags:
+      - Signature Lists
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignatureList'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SignatureList'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SignatureList'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignatureList'
+          description: ''
+    patch:
+      operationId: api_signature_lists_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this signature list.
+        required: true
+      tags:
+      - Signature Lists
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedSignatureList'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedSignatureList'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedSignatureList'
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignatureList'
+          description: ''
+    delete:
+      operationId: api_signature_lists_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this signature list.
+        required: true
+      tags:
+      - Signature Lists
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/signatures/:
+    get:
+      operationId: api_signatures_list
+      tags:
+      - Signatures
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Signature'
+          description: ''
+    post:
+      operationId: api_signatures_create
+      tags:
+      - Signatures
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Signature'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Signature'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Signature'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Signature'
+          description: ''
+  /api/signatures/{id}/:
+    get:
+      operationId: api_signatures_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this signature.
+        required: true
+      tags:
+      - Signatures
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Signature'
+          description: ''
+    put:
+      operationId: api_signatures_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this signature.
+        required: true
+      tags:
+      - Signatures
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Signature'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Signature'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Signature'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Signature'
+          description: ''
+    patch:
+      operationId: api_signatures_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this signature.
+        required: true
+      tags:
+      - Signatures
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedSignature'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedSignature'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedSignature'
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Signature'
+          description: ''
+    delete:
+      operationId: api_signatures_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this signature.
+        required: true
+      tags:
+      - Signatures
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/users/:
+    get:
+      operationId: api_users_list
+      tags:
+      - api
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+          description: ''
+    post:
+      operationId: api_users_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+  /api/users/{id}/:
+    get:
+      operationId: api_users_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this usuário.
+        required: true
+      tags:
+      - api
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+    put:
+      operationId: api_users_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this usuário.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+    patch:
+      operationId: api_users_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this usuário.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUser'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUser'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUser'
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+    delete:
+      operationId: api_users_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this usuário.
+        required: true
+      tags:
+      - api
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /auth/registration/:
+    post:
+      operationId: auth_registration_create
+      tags:
+      - auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Register'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Register'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Register'
+        required: true
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
+          description: ''
+  /auth/registration/resend-email/:
+    post:
+      operationId: auth_registration_resend_email_create
+      tags:
+      - auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResendEmailVerification'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ResendEmailVerification'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ResendEmailVerification'
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestAuthDetail'
+          description: ''
+  /auth/registration/verify-email/:
+    post:
+      operationId: auth_registration_verify_email_create
+      tags:
+      - auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerifyEmail'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/VerifyEmail'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/VerifyEmail'
+        required: true
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestAuthDetail'
+          description: ''
+components:
+  schemas:
+    Ata:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        user:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          default: ''
+          maxLength: 255
+        text:
+          type: string
+        signature_list:
+          type: integer
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - id
+      - text
+      - user
+    PatchedSignature:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        signature_list:
+          type: integer
+        data:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+    PatchedSignatureList:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        owner:
+          type: string
+          title: Usuário
+          description: Obrigatório. 150 caracteres ou menos. Letras, números e @/./+/-/_
+            apenas.
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        end_date:
+          type: string
+          format: date-time
+          nullable: true
+        signatures:
+          type: array
+          items:
+            $ref: '#/components/schemas/Signature'
+          readOnly: true
+    PatchedUser:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        username:
+          type: string
+          title: Usuário
+          description: Obrigatório. 150 caracteres ou menos. Letras, números e @/./+/-/_
+            apenas.
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          title: Endereço de e-mail
+          maxLength: 254
+        is_owner:
+          type: boolean
+        is_active:
+          type: boolean
+          title: Ativo
+          description: Indica que o usuário será tratado como ativo. Ao invés de excluir
+            contas de usuário, desmarque isso.
+        photo_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 500
+    Register:
+      type: object
+      properties:
+        username:
+          type: string
+          maxLength: 150
+          minLength: 1
+        email:
+          type: string
+          format: email
+        password1:
+          type: string
+          writeOnly: true
+        password2:
+          type: string
+          writeOnly: true
+      required:
+      - password1
+      - password2
+      - username
+    ResendEmailVerification:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+    RestAuthDetail:
+      type: object
+      properties:
+        detail:
+          type: string
+          readOnly: true
+      required:
+      - detail
+    Signature:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        signature_list:
+          type: integer
+        data:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - data
+      - id
+      - signature_list
+    SignatureList:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        owner:
+          type: string
+          title: Usuário
+          description: Obrigatório. 150 caracteres ou menos. Letras, números e @/./+/-/_
+            apenas.
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        end_date:
+          type: string
+          format: date-time
+          nullable: true
+        signatures:
+          type: array
+          items:
+            $ref: '#/components/schemas/Signature'
+          readOnly: true
+      required:
+      - created_at
+      - id
+      - name
+      - owner
+      - signatures
+    Token:
+      type: object
+      description: Serializer for Token model.
+      properties:
+        key:
+          type: string
+          title: Chave
+          maxLength: 40
+      required:
+      - key
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        username:
+          type: string
+          title: Usuário
+          description: Obrigatório. 150 caracteres ou menos. Letras, números e @/./+/-/_
+            apenas.
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          title: Endereço de e-mail
+          maxLength: 254
+        is_owner:
+          type: boolean
+        is_active:
+          type: boolean
+          title: Ativo
+          description: Indica que o usuário será tratado como ativo. Ao invés de excluir
+            contas de usuário, desmarque isso.
+        photo_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 500
+      required:
+      - id
+      - username
+    VerifyEmail:
+      type: object
+      properties:
+        key:
+          type: string
+          writeOnly: true
+      required:
+      - key
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Token-based authentication with required prefix "Token"
+tags:
+- name: Signature Lists
+  description: Operations related to Signature Lists
+- name: Signatures
+  description: Operations related to Signatures
